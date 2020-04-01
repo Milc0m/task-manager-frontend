@@ -1,0 +1,47 @@
+<div class="centered-content">
+    <div class="task-manager-container">
+        <div class="task-list-container">
+            <h1 class="title has-text-primary">
+                Tasks
+            </h1>
+            <div class="scroll">
+                <div class="task" *ngFor="let task of tasks" [ngClass]="{ 'completed': task.completed }">
+                    <div class="align">
+                        <div class="task-text">
+                            <p>{{ task.title }}</p>
+                        </div>
+                        <div *ngIf="task.shareSender" class="author">
+                            <small>Author: {{task.shareSender}}. Shared with: {{task.shareRecipient}}</small>
+                        </div>
+
+                    </div>
+                            <div class="task-buttons">
+                                <button class="button is-danger tasks-button" (click)="onDeleteClick(task._id)">
+                                    <i class="icon">
+                                        <i class="fas fa-trash fa-xs"></i>
+                                    </i>
+                                </button>
+                                <button class="button is-warning tasks-button" [routerLink]="['/tasks/edit', task._id]">
+                                    <i class="icon">
+                                        <i class="fas fa-edit fa-xs"></i>
+                                    </i>
+                                </button>
+                                <button class="button is-link tasks-button" [routerLink]="['/share', task._id]">
+                                    <i class="icon">
+                                        <i class="fas fa-share fa-xs"></i>
+                                    </i>
+                                </button>
+                                <button class="button is-success" (click)="onTaskClick(task)">
+                                    <i class="icon">
+                                        <i class="fas fa-check fa-xs"></i>
+                                    </i>
+                                </button>
+                            </div>
+                </div>
+            </div>
+
+            <button class="button my-button is-primary has-text-white" routerLink="/new-task">+ New Task</button>
+            <button class="button logout-button is-primary has-text-white" (click)="onExitClick()">Exit</button>
+        </div>
+    </div>
+</div>

@@ -9,7 +9,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/tasks', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'new-task', component: NewTaskComponent },
   { path: 'tasks/edit/:taskId', component: EditTaskComponent },
   { path: 'share/:taskId', component: ShareComponent },
